@@ -1,19 +1,20 @@
+
 const { zokou } = require("../framework/zokou");
 const axios = require('axios');
 const ytSearch = require('yt-search');
 
 // Define the command with aliases
 zokou({
-  nomCom: "play",
-  aliases: ["song", "ytmp3", "audio", "mp3"],
+  nomCom: "videodoc",
+  aliases: ["musicvideodoc", "ytmp4doc", "luckyvideodoc", "mp4doc"],
   categorie: "Search",
-  reaction: "🎥"
+  reaction: "📺"
 }, async (dest, zk, commandOptions) => {
   const { arg, ms, repondre } = commandOptions;
 
   // Check if a query is provided
   if (!arg[0]) {
-    return repondre("Please provide a song name.");
+    return repondre("Please provide a video document name.");
   }
 
   const query = arg.join(" ");
@@ -24,18 +25,13 @@ zokou({
 
     // Check if any videos were found
     if (!searchResults || !searchResults.videos.length) {
-      return repondre('No video found for the specified query.');
+      return repondre('No video document found for the specified query.');
     }
 
     const firstVideo = searchResults.videos[0];
     const videoUrl = firstVideo.url;
 
-    // Attempt to download from different APIs
-    let downloadData;
-    let downloadUrl;
-    let videoDetails;
-
-    // Function to get download data
+    // Function to get download data from APIs
     const getDownloadData = async (url) => {
       try {
         const response = await axios.get(url);
@@ -46,43 +42,40 @@ zokou({
       }
     };
 
-    // Try Gifted API
-    downloadData = await getDownloadData(`https://api.giftedtech.web.id/api/download/dlmp3?url=${encodeURIComponent(videoUrl)}&apikey=gifted`);
-    if (downloadData.success) {
-      downloadUrl = downloadData.result.download_url;
-      videoDetails = downloadData.result;
-    } else {
-      // Try Yasiya API if Gifted fails
-      downloadData = await getDownloadData(`https://www.dark-yasiya-api.site/download/ytmp3?url=${encodeURIComponent(videoUrl)}`);
-      if (downloadData.success) {
-        downloadUrl = downloadData.result.download_url;
-        videoDetails = downloadData.result;
-      } else {
-        // Try Dreaded API if both fail
-        downloadData = await getDownloadData(`https://api.dreaded.site/api/ytdl/video?query=${encodeURIComponent(videoUrl)}`);
-        if (downloadData.success) {
-          downloadUrl = downloadData.result.download_url;
-          videoDetails = downloadData.result;
-        }
-      }
+    // List of APIs to try
+    const apis = [
+      `https://api-rin-tohsaka.vercel.app/download/ytmp4?url=${encodeURIComponent(videoUrl)}`,
+      `https://api.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(videoUrl)}`,
+      `https://www.dark-yasiya-api.site/download/ytmp3?url=${encodeURIComponent(videoUrl)}`,
+      `https://api.giftedtech.web.id/api/download/dlmp3?url=${encodeURIComponent(videoUrl)}&apikey=gifted-md`,
+      `https://api.dreaded.site/api/ytdl/audio?url=${encodeURIComponent(videoUrl)}`
+    ];
+
+    let downloadData;
+    for (const api of apis) {
+      downloadData = await getDownloadData(api);
+      if (downloadData && downloadData.success) break;
     }
 
     // Check if a valid download URL was found
-    if (!downloadUrl || !videoDetails) {
+    if (!downloadData || !downloadData.success) {
       return repondre('Failed to retrieve download URL from all sources. Please try again later.');
     }
 
+    const downloadUrl = downloadData.result.download_url;
+    const videoDetails = downloadData.result;
+
     // Prepare the message payload with external ad details
     const messagePayload = {
-      audio: { url: downloadUrl },
-      mimetype: 'audio/mp4',
+      document: { url: downloadUrl },
+      mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ3 ᴘʟᴀʏᴇʀ",
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
-          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+          sourceUrl: 'https://chat.whatsapp.com/JIQos2sUdGyII4qsig72pK',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
