@@ -5,7 +5,7 @@ const ytSearch = require('yt-search');
 
 // Define the command with aliases
 zokou({
-  nomCom: "videodoc",
+  nomCom: "video",
   aliases: ["musicvideodoc", "ytmp4doc", "luckyvideodoc", "mp4doc"],
   categorie: "Search",
   reaction: "📺"
