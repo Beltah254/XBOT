@@ -1162,13 +1162,16 @@ if (texte && texte.startsWith('>')) {
          
             /////////////////////////
 
-      //execution des commandes   
-      if (verifCom) {
-        const cd = evt.cm.find(zokou => zokou.nomCom === com || zokou.nomCom === com || zokou.aliases && zokou.aliases.includes(com));
-        if (cd) {
-          try {
-            if (conf.MODE.toLocaleLowerCase() != 'yes' && !superUser) {
-              return;
+      
+            //execution des commandes   
+            if (verifCom) {
+                //await await zk.readMessages(ms.key);
+                const cd = evt.cm.find((zokou) => zokou.nomCom === (com));
+                if (cd) {
+                    try {
+
+            if ((conf.MODE).toLocaleLowerCase() != 'yes' && !superUser) {
+                return;
             }
 
             /******************* PM_PERMT***************/
