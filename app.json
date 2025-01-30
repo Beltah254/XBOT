@@ -1,147 +1,151 @@
 {
-  "name": "⭕ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕",
-  "description": "This BOT was developed by Beltah Tech 👻.",
+  "name": "👻BELTAH XBOT👻",
+  "description": "Beltah Xbot is a multidevice WhatsApp bot built to make your WhatsApp enjoyable..",
   "keywords": [
     "bot",
     "node",
     "baileys",
     "whatsapp"
   ],
-  "logo": "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+  "logo": "https://github.com/Beltah254/XBOT",
   "repository": "https://github.com/Beltah254/XBOT",
   "succes_url": "/",
   "stack": "container",
   "env": {
     "PREFIX": {
-      "description": "choose your prefix of bot",
+      "description": "Choose your bot's prefix",
       "value": ".",
       "required": true
     },
     "AUTO_READ_STATUS": {
-      "description": "Your contact status will be read automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "Your contact status will be read automatically (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "yes",
       "required": false
     },
-    "AUTO_REPLY": {
-      "description": "Your contact messages will be replied automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+    "GREET": {
+      "description": "when enabled it automatically sends  greeting message to members in your pm",
       "value": "no",
       "required": false
-          },
-    "ANTIVV": {
-      "description": "Detect all view once media and send them to your dm",
+    },
+    "AUTO_LIKE_STATUS": {
+      "description": "Your contact status will be liked automatically (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "yes",
       "required": false
     },
-    "AUTO_BIO": {
-      "description": "Set live time bio.",
-      "value": "yes",
-      "required": false
-    },
-    "AUTO_SAVE_CONTACTS": {
-      "description": "Your contacts will be saved automatically. ",
-      "value": "yes",
-      "required": false
-    },
-    "ANTIDELETEDM": {
-      "description": "deleted messages will be detected lively.and sent directly after deletion",
+    "AUTOBIO": {
+      "description": "This automatically update your bio status.Always make sure you insert your OWNER_NAME since it uses that to update your bio name status",
       "value": "yes",
       "required": false
     },
     "AUTO_DOWNLOAD_STATUS": {
-      "description": "Your contact status will be download automatically and send to you(type yes to active or no to deactive ; don't write in capital letter)",
+      "description": "Your contact status will be downloaded automatically and sent to you (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "no",
       "required": false
     },
-    "AUTOREAD_MESSAGE": {
-      "description": "Show bluetick after message is received.(type yes to active or no to deactive  ; don't write in capital letter)",
-      "value": "no",
-      "required": false
-    },
-    "ANTILINK" : {
-      "description" : "detect links and remove link senders to group", 
-      "value" : "yes", 
-      "required" : false
-     }, 
-    "ANTICALL": {
-      "description": "no calls on WhatsApp...reject automatically(type yes to active or no to deactive  ; don't write in capital letter)",
-      "value": "no",
-      "required": false
-     }, 
-      "AUTO_REACT_STATUS": {
-      "description": "Your friend's status will be liked automatically",
+    "PM_PERMIT": {
+      "description": "Restrict other users from using your bot in private messages (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "yes",
       "required": false
     },
-    "CHAT_BOT" : {
-      "description" : "active bot to reply all messages received in pm", 
-      "value" : "no", 
-     "required" :false
-     }, 
-    "PM_PERMIT": {
-      "description": "Other user can't use your bot in pm (type yes to active or no to deactive ; don't write in capital letter)",
+    "AUTO_STATUS_MSG": {
+      "description": "type your genuine status message",
+      "value": "Beltah Xbot viewed your status✅",
+      "required": false
+    },
+    "AUTO_STATUS_REPLY": {
+      "description": "type your genuine status message",
       "value": "no",
+      "required": false
+    },
+    "ANTICALL_MSG": {
+      "description": "Type your anticall message to always send when calls are declined.You can as well leave it blank",
+      "value": "",
       "required": false
     },
     "BOT_NAME": {
-      "description": "put A name for your bot",
-      "value": "BELTAH-MD",
+      "description": "you must give a name for you bot uhh??!!",
+      "value": "",
+      "required": true
+    },
+    "GROUP_CONTROL": {
+      "description": "urs if you want bot yo control group features such as antilink,antispam,antibad",
+      "value": "yes",
       "required": false
-  
     },
     "PUBLIC_MODE": {
-      "description": "type yes to put your bot on public mode or no to put it on private mod",
+      "description": "Set 'yes' to make your bot public or 'no' to keep it private",
       "value": "yes",
-      "required": false 
-    },
-    "HEROKU_APY_KEY": {
-      "description": "insert your heroku api-key (OPTIONAL)",
-      "value" : "", 
       "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Insert your Heroku API key (required)",
+      "value": "",
+      "required": true
     },
     "HEROKU_APP_NAME": {
-      "description": "insert your heroku APP NAME (OPTIONAL)",
-      "value" : "", 
-      "required": false
+      "description": "Insert your Heroku app name (required)",
+      "value": "",
+      "required": true
     },
     "SESSION_ID": {
-      "description": "put your session ID , the code you receive after scanning Qr code",
+      "description": "Enter your session ID, the code you receive after scanning the QR code",
       "value": "",
       "required": true
     },
     "OWNER_NAME": {
-      "desc": "Your Name",
-      "required": false,
-      "value": "𝐁𝐞𝐥𝐭𝐚𝐡 𝐤𝐞"
+      "description": "don't you have a name bro.Insert your name here!!",
+      "value": "Beltah Tech",
+      "required": true
+    },
+    "URL": {
+      "description": "you must add your bot image url.Get your image url now and fill it here",
+      "value": "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+      "required": true
+    },
+    "AUTO_READ_MESSAGES": {
+      "description": "yes toactivate no to deactivate",
+      "value": "yes",
+      "required": false  
     },
     "NUMERO_OWNER": {
-      "desc": "Your number , dont put '+' and put you area code(exemple '254')",
-      "required": false,
-      "value": "254114141192"
+      "description": "Your phone number (exclude '+' and area code, e.g., '254114141192')",
+      "value": "254114141192",
+      "required": false
     },
     "WARN_COUNT": {
-      "desc": "this is the limit of warn for warning commandes",
-      "required": false,
-      "value": "3"
+      "description": "Set the warning limit for warning commands",
+      "value": "3",
+      "required": false
     },
     "STARTING_BOT_MESSAGE": {
-      "description": "if you don't want startting-bot-message put no else put yes",
-      "required": true,
-      "value": "no"
+      "description": "Set 'yes' to display a starting bot message or 'no' to disable it",
+      "value": "yes",
+      "required": true
     },
     "PRESENCE": {
-      "description": "Mark your presence: 1 to indicate that you are online even if you are not. 2 to indicate that you are currently typing a message. 3 to indicate that you are currently recording an audio. Or leave the field blank to indicate your real state.",
+      "description": "Mark your presence: 1 for online, 2 for typing, 3 for recording, or leave blank for real state",
       "value": "",
       "required": false
     },
-    "ADMGROUP": {
-      "description": "deleted messages will be detected on live chat",
+    "ANTI_DELETE_MESSAGE": {
+      "description": "Enable anti-delete message (set 'yes' to activate or 'no' to deactivate)",
       "value": "yes",
       "required": false
     },
+    "ANTICALL": {
+      "description": "Automatically decline incoming calls (set 'on' to activate or 'off' to deactivate)",
+      "value": "yes",
+      "required": false
+    },
+    "AUTO_BLOCK": {
+      "description": "Type true if you want bot to automatically  block those who spam your dm ",
+      "value": "no",
+      "required": false
+    },
     "AUTO_REACTION": {
-      "description": "reaction with different emojis(IF YOU NEED THIS, SET BELTAH_REACT TO no, ELSE IT WON'T WORK) ",
-      "required": false,
-      "value": "no"
+      "description": "Set 'yes' to enable bot reactions to messages in private chats",
+      "value": "no",
+      "required": false
     }
   },
   "formation": {
@@ -155,4 +159,4 @@
       "plan": "heroku-postgresql:essential-0"
     }
   ]
-    }
+  }
