@@ -9,7 +9,7 @@ RUN apt-get update && \
   npm i pm2 -g && \
   rm -rf /var/lib/apt/lists/*
   
-RUN git clone https://github.com/Beltah254/XBOT /root/beltah_Bot
+RUN git clone https://github.com/Beltah254/X-BOT /root/beltah_Bot
 WORKDIR /root/beltah_Bot/
 
 
@@ -21,4 +21,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["node", "beltah.js"]
+CMD ["npm", "run" , "alpha"]
